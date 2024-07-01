@@ -16,43 +16,41 @@ try {
     }
 }
   
-//   preparing form data object
-  const formData = {
+// preparing form data object
+const formData = {
     email: "",
     message: "",
-  };
+};
   
 // adding event-listener for local storage states
 const feedbackFormElement = document.querySelector('.feedback-form');
-//   local storage's name
-  const feedbackFormState = "feedback-form-state";
+
+// local storage's name
+const feedbackFormState = "feedback-form-state";
   
-  feedbackFormElement.addEventListener('submit', event => {
+feedbackFormElement.addEventListener('submit', event => {
     event.preventDefault();
+
 // catching form datas
     let typedEmail = feedbackFormElement.elements.email.value;
     let typedMessage = feedbackFormElement.elements.message.value;
-// deleting white characters by .trim()
+    
+// deleting white characters by .trim() method
     typedEmail = typedEmail.trim();
     typedMessage = typedMessage.trim();
   
     if (typedEmail === '' || typedMessage === '') {
-      
-      alert('Fill please all fields');
-  
-    } else {
-      
-      console.log(formData);
-  
-      
-      localStorage.removeItem(feedbackFormState);
-  
-      formData.email = '';
-      formData.message = '';
-  
-      feedbackFormElement.reset();
+        alert("Before sending all of fields must be filled up.");
+        } else {
+        console.log(formData);
+
+// reseting all typing fields      
+        localStorage.removeItem(feedbackFormState);
+        formData.email = "";
+        formData.message = "";
+        feedbackFormElement.reset();
     }
-  });
+});
   
 //   feedbackFormElement.addEventListener('input', event => {
     

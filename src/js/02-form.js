@@ -68,15 +68,12 @@ feedbackFormElement.addEventListener('input', event => {
 });
   
   
-//   const dataFromLS = localStorage.getItem(feedbackFormState);
-  
-//   if (dataFromLS !== null) {
-    
-//     const parseData = JSON.parse(dataFromLS);
-  
-//     feedbackFormElement.elements.email.value = parseData.email;
-//     feedbackFormElement.elements.message.value = parseData.message;
-  
-//     formData.email = parseData.email;
-//     formData.message = parseData.message;
-//   }
+const localStorageBackup = localStorage.getItem(feedbackFormState);
+if (localStorageBackup !== null) {
+    const parsedLocalStorage = JSON.parse(localStorageBackup);
+    feedbackFormElement.elements.email.value = parsedLocalStorage.email;
+    feedbackFormElement.elements.message.value = parsedLocalStorage.message;
+
+    formData.email = parsedLocalStorage.email;
+    formData.message = parsedLocalStorage.message;
+}

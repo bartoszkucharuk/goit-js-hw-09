@@ -71,19 +71,19 @@ const images = [
 const list = document.querySelector(".gallery");
 
 function createMarkup(arr) {
-    return arr.map(({ preview, original, description }) => `
-    <li class="gallery-item">
-        <a class="gallery-link" href="${original}">
-            <img
-            class="gallery-image"
-            src="${preview}"
-            data-source="${original}"
-            alt="${description}"
-            width="500"
-            />
-        </a>
-    </li>
-    `).join('')
+  return arr.map(({ preview, original, description }) => `
+  <li class="gallery-item">
+      <a class="gallery-link" href="${original}">
+          <img
+          class="gallery-image"
+          src="${preview}"
+          data-source="${original}"
+          alt="${description}"
+          width="500"
+          />
+      </a>
+  </li>
+  `).join('')
 }
 
 list.insertAdjacentHTML("afterbegin", createMarkup(images))

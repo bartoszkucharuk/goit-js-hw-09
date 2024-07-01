@@ -44,7 +44,7 @@ feedbackFormElement.addEventListener('submit', event => {
         } else {
         console.log(formData);
 
-// reseting all typing fields      
+// reseting all typing fields from local storage  
         localStorage.removeItem(feedbackFormState);
         formData.email = "";
         formData.message = "";

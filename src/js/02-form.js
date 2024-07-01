@@ -51,22 +51,21 @@ feedbackFormElement.addEventListener('submit', event => {
         feedbackFormElement.reset();
     }
 });
-  
-//   feedbackFormElement.addEventListener('input', event => {
-    
-//     let typedEmail = feedbackFormElement.elements.email.value;
-//     let typedMessage = feedbackFormElement.elements.message.value;
-  
-//     typedEmail = typedEmail.trim();
-//     typedMessage = typedMessage.trim();
-  
-   
-//     formData.email = typedEmail;
-//     formData.message = typedMessage;
-  
-    
-//     localStorageSavedData(feedbackFormState, formData);
-//   });
+
+/* preventing typing fields from erasing during refreshing site */
+feedbackFormElement.addEventListener('input', event => {
+    let typedEmail = feedbackFormElement.elements.email.value;
+    let typedMessage = feedbackFormElement.elements.message.value;
+
+// deleting white characters by .trim() method
+    typedEmail = typedEmail.trim();
+    typedMessage = typedMessage.trim();
+     
+    formData.email = typedEmail;
+    formData.message = typedMessage;
+
+    localStorageSavedData(feedbackFormState, formData);
+});
   
   
 //   const dataFromLS = localStorage.getItem(feedbackFormState);

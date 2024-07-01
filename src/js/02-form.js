@@ -1,11 +1,11 @@
-
-function saveToLocalStorage(key, value) {
+// saving data at local storage
+function localStorageSavedData(key, value) {
     const jsonData = JSON.stringify(value);
     localStorage.setItem(key, jsonData);
   }
-  
-  
-  function loadFromLocalStorage(key) {
+
+// restoring data from local storage
+  function localStorageRestoredData(key) {
     const json = localStorage.getItem(key);
   
     try {
@@ -16,71 +16,67 @@ function saveToLocalStorage(key, value) {
     }
   }
   
-  const formData = {
-    email: '',
-    message: '',
-  };
+//   const formData = {
+//     email: '',
+//     message: '',
+//   };
   
-  const feedbackFormEl = document.querySelector('.feedback-form');
-  const feedbackFormState = 'feedback-form-state';
+//   const feedbackFormEl = document.querySelector('.feedback-form');
+//   const feedbackFormState = 'feedback-form-state';
   
-  feedbackFormEl.addEventListener('submit', event => {
-    event.preventDefault();
+//   feedbackFormEl.addEventListener('submit', event => {
+//     event.preventDefault();
   
-    let usermail = feedbackFormEl.elements.email.value;
-    let usermessage = feedbackFormEl.elements.message.value;
+//     let usermail = feedbackFormEl.elements.email.value;
+//     let usermessage = feedbackFormEl.elements.message.value;
   
-    usermail = usermail.trim();
-    usermessage = usermessage.trim();
+//     usermail = usermail.trim();
+//     usermessage = usermessage.trim();
   
-    if (usermail === '' || usermessage === '') {
+//     if (usermail === '' || usermessage === '') {
       
-      alert('Fill please all fields');
+//       alert('Fill please all fields');
   
-    } else {
+//     } else {
       
-      console.log(formData);
+//       console.log(formData);
   
       
-      localStorage.removeItem(feedbackFormState);
+//       localStorage.removeItem(feedbackFormState);
   
-      formData.email = '';
-      formData.message = '';
+//       formData.email = '';
+//       formData.message = '';
   
-      feedbackFormEl.reset();
-    }
-  });
+//       feedbackFormEl.reset();
+//     }
+//   });
   
-  feedbackFormEl.addEventListener('input', event => {
+//   feedbackFormEl.addEventListener('input', event => {
     
-    let usermail = feedbackFormEl.elements.email.value;
-    let usermessage = feedbackFormEl.elements.message.value;
+//     let usermail = feedbackFormEl.elements.email.value;
+//     let usermessage = feedbackFormEl.elements.message.value;
   
-    usermail = usermail.trim();
-    usermessage = usermessage.trim();
+//     usermail = usermail.trim();
+//     usermessage = usermessage.trim();
   
    
-    formData.email = usermail;
-    formData.message = usermessage;
+//     formData.email = usermail;
+//     formData.message = usermessage;
   
     
-    saveToLocalStorage(feedbackFormState, formData);
-  });
+//     localStorageSavedData(feedbackFormState, formData);
+//   });
   
   
-  const dataFromLS = localStorage.getItem(feedbackFormState);
+//   const dataFromLS = localStorage.getItem(feedbackFormState);
   
-  if (dataFromLS !== null) {
+//   if (dataFromLS !== null) {
     
-    const parseData = JSON.parse(dataFromLS);
+//     const parseData = JSON.parse(dataFromLS);
   
-    feedbackFormEl.elements.email.value = parseData.email;
-    feedbackFormEl.elements.message.value = parseData.message;
+//     feedbackFormEl.elements.email.value = parseData.email;
+//     feedbackFormEl.elements.message.value = parseData.message;
   
-    formData.email = parseData.email;
-    formData.message = parseData.message;
-  }
-  // Описаний в документації
-import SimpleLightbox from "simplelightbox";
-// Додатковий імпорт стилів
-import "simplelightbox/dist/simple-lightbox.min.css";
+//     formData.email = parseData.email;
+//     formData.message = parseData.message;
+//   }

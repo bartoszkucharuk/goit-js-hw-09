@@ -57,3 +57,49 @@ img:hover {
   align-items: center;
   flex-basis: ((100% - 48px)/2);
 }
+
+.feedback-form {
+  display: flex;
+  flex-direction: column;
+  align-items:flex-start;
+  gap: 8px;
+  padding: 0;
+  margin: 0px 200px;
+}
+
+.feedback-form label {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+#email,
+#message {
+  width: 360px;
+  height: 40px;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+#message {
+  height: 80px;
+  resize: none;
+}
+
+#submitBtn {
+  margin: 0 auto 0 48px;
+  width: 95px;
+  height: 40px;
+  border-radius: 8px;
+  padding: 8px 16px;
+  background-color: #4E75FF;
+  color: #FFFFFF;
+  align-self: start;
+  cursor: pointer;
+  border: none;
+  font-size: 14px;
+}
+;

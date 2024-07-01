@@ -5,17 +5,16 @@ function localStorageSavedData(key, value) {
   }
 
 // restoring data from local storage
-  function localStorageRestoredData(key) {
-      const jsonData = localStorage.getItem(key);
-      
-// error processing with *JSON format
-    try {
-      const parsedData = JSON.parse(jsonData);
-      return parsedData;
+function localStorageRestoredData(key) {
+    const jsonData = localStorage.getItem(key);
+// error processing with *JSON format by using try...catch
+try {
+    const parsedData = JSON.parse(jsonData);
+        return parsedData;
     } catch {
-      return jsonData;
+        return jsonData;
     }
-  }
+}
   
 //   preparing form data object
   const formData = {
@@ -25,35 +24,35 @@ function localStorageSavedData(key, value) {
   
 // adding event-listener for local storage states
 const feedbackFormElement = document.querySelector('.feedback-form');
-//   name of local storage
+//   local storage's name
   const feedbackFormState = "feedback-form-state";
   
-//   feedbackFormElement.addEventListener('submit', event => {
-//     event.preventDefault();
+  feedbackFormElement.addEventListener('submit', event => {
+    event.preventDefault();
+// catching form datas
+    let usermail = feedbackFormElement.elements.email.value;
+    let usermessage = feedbackFormElement.elements.message.value;
   
-//     let usermail = feedbackFormElement.elements.email.value;
-//     let usermessage = feedbackFormElement.elements.message.value;
+    usermail = usermail.trim();
+    usermessage = usermessage.trim();
   
-//     usermail = usermail.trim();
-//     usermessage = usermessage.trim();
-  
-//     if (usermail === '' || usermessage === '') {
+    if (usermail === '' || usermessage === '') {
       
-//       alert('Fill please all fields');
+      alert('Fill please all fields');
   
-//     } else {
+    } else {
       
-//       console.log(formData);
+      console.log(formData);
   
       
-//       localStorage.removeItem(feedbackFormState);
+      localStorage.removeItem(feedbackFormState);
   
-//       formData.email = '';
-//       formData.message = '';
+      formData.email = '';
+      formData.message = '';
   
-//       feedbackFormElement.reset();
-//     }
-//   });
+      feedbackFormElement.reset();
+    }
+  });
   
 //   feedbackFormElement.addEventListener('input', event => {
     

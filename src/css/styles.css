@@ -23,3 +23,37 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+
+body {
+  max-width: 1280px;
+  margin: 24px auto auto;
+}
+
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+}
+
+img {
+  width: 360px;
+  height: 200px;
+  margin: 12px;
+}
+
+img:hover {
+  width: 376px;
+  height: 208px;
+  cursor: pointer;
+  background-color: rgba(78, 117, 255, 1);
+  margin: 4px;
+}
+
+.gallery {
+  display: flex;
+  max-width: 1200px;
+  flex-flow: flex-wrap;
+  justify-content: center;
+  align-items: center;
+  flex-basis: ((100% - 48px)/2);
+}

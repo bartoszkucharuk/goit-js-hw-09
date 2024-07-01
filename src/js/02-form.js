@@ -1,34 +1,38 @@
 // saving data at local storage
 function localStorageSavedData(key, value) {
-    const jsonData = JSON.stringify(value);
-    localStorage.setItem(key, jsonData);
+    const dataToJSON = JSON.stringify(value);
+    localStorage.setItem(key, dataToJSON);
   }
 
 // restoring data from local storage
   function localStorageRestoredData(key) {
-    const json = localStorage.getItem(key);
-  
+      const jsonData = localStorage.getItem(key);
+      
+// error processing with *JSON format
     try {
-      const data = JSON.parse(json);
-      return data;
+      const parsedData = JSON.parse(jsonData);
+      return parsedData;
     } catch {
-      return json;
+      return jsonData;
     }
   }
   
-//   const formData = {
-//     email: '',
-//     message: '',
-//   };
+//   preparing form data object
+  const formData = {
+    email: "",
+    message: "",
+  };
   
-//   const feedbackFormEl = document.querySelector('.feedback-form');
-//   const feedbackFormState = 'feedback-form-state';
+// adding event-listener for local storage states
+const feedbackFormElement = document.querySelector('.feedback-form');
+//   name of local storage
+  const feedbackFormState = "feedback-form-state";
   
-//   feedbackFormEl.addEventListener('submit', event => {
+//   feedbackFormElement.addEventListener('submit', event => {
 //     event.preventDefault();
   
-//     let usermail = feedbackFormEl.elements.email.value;
-//     let usermessage = feedbackFormEl.elements.message.value;
+//     let usermail = feedbackFormElement.elements.email.value;
+//     let usermessage = feedbackFormElement.elements.message.value;
   
 //     usermail = usermail.trim();
 //     usermessage = usermessage.trim();
@@ -47,14 +51,14 @@ function localStorageSavedData(key, value) {
 //       formData.email = '';
 //       formData.message = '';
   
-//       feedbackFormEl.reset();
+//       feedbackFormElement.reset();
 //     }
 //   });
   
-//   feedbackFormEl.addEventListener('input', event => {
+//   feedbackFormElement.addEventListener('input', event => {
     
-//     let usermail = feedbackFormEl.elements.email.value;
-//     let usermessage = feedbackFormEl.elements.message.value;
+//     let usermail = feedbackFormElement.elements.email.value;
+//     let usermessage = feedbackFormElement.elements.message.value;
   
 //     usermail = usermail.trim();
 //     usermessage = usermessage.trim();
@@ -74,8 +78,8 @@ function localStorageSavedData(key, value) {
     
 //     const parseData = JSON.parse(dataFromLS);
   
-//     feedbackFormEl.elements.email.value = parseData.email;
-//     feedbackFormEl.elements.message.value = parseData.message;
+//     feedbackFormElement.elements.email.value = parseData.email;
+//     feedbackFormElement.elements.message.value = parseData.message;
   
 //     formData.email = parseData.email;
 //     formData.message = parseData.message;

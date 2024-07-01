@@ -30,13 +30,13 @@ const feedbackFormElement = document.querySelector('.feedback-form');
   feedbackFormElement.addEventListener('submit', event => {
     event.preventDefault();
 // catching form datas
-    let usermail = feedbackFormElement.elements.email.value;
-    let usermessage = feedbackFormElement.elements.message.value;
+    let typedEmail = feedbackFormElement.elements.email.value;
+    let typedMessage = feedbackFormElement.elements.message.value;
+// deleting white characters by .trim()
+    typedEmail = typedEmail.trim();
+    typedMessage = typedMessage.trim();
   
-    usermail = usermail.trim();
-    usermessage = usermessage.trim();
-  
-    if (usermail === '' || usermessage === '') {
+    if (typedEmail === '' || typedMessage === '') {
       
       alert('Fill please all fields');
   
@@ -56,15 +56,15 @@ const feedbackFormElement = document.querySelector('.feedback-form');
   
 //   feedbackFormElement.addEventListener('input', event => {
     
-//     let usermail = feedbackFormElement.elements.email.value;
-//     let usermessage = feedbackFormElement.elements.message.value;
+//     let typedEmail = feedbackFormElement.elements.email.value;
+//     let typedMessage = feedbackFormElement.elements.message.value;
   
-//     usermail = usermail.trim();
-//     usermessage = usermessage.trim();
+//     typedEmail = typedEmail.trim();
+//     typedMessage = typedMessage.trim();
   
    
-//     formData.email = usermail;
-//     formData.message = usermessage;
+//     formData.email = typedEmail;
+//     formData.message = typedMessage;
   
     
 //     localStorageSavedData(feedbackFormState, formData);
